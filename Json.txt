@@ -1,0 +1,26 @@
+{
+    "timestamp" : "2018-02-05T12:59:11.332",
+    "personId" : 2,
+    "eventId" : 1,
+    "person" : {
+        "personId" : 2,
+        "firstName" : "Aditya",
+        "lastName" : "Agarwal",
+        "phone" : ["12", "34"],
+        "email" : ["ad", "ef"],
+        "address" : [{
+            "line1" : "abc",
+            "line2" : "def",
+            "state" : "WB",
+            "city" : "Kol",
+            "country" : "Ind",
+            "pincode" : "700033"
+        }]
+    },
+    "eventType" : "Create",
+    "createdOn": "2018-02-05T12:59:11.332",
+    "raisedOn": "2018-02-05T12:59:11.332",
+    "subscribed" : "2018-02-05T12:59:11.332",
+    "handled" : "2018-02-05T12:59:11.332",
+    "processed" : "2018-02-05T12:59:11.332"
+}
