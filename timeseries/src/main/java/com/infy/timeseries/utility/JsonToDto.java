@@ -1,6 +1,7 @@
 package com.infy.timeseries.utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -28,16 +29,24 @@ public class JsonToDto{
 	}
 	
 	public List<Object> StringToObject(List<String> list) throws TimeSeriesException{
-		List<Object> listObject=new ArrayList<Object>();
 		try {
 			return mapper.readValue(list.toString(), new TypeReference<List<Object>>() {});
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new TimeSeriesException(e.getMessage());
 		}
-		return listObject;
+	}
+	
+	public PersonDTO StringtoDTO(String person) throws TimeSeriesException{
+		try {
+			return mapper.readValue(person, new TypeReference<PersonDTO>(){}); 
+			}catch(JsonProcessingException e) {
+				throw new TimeSeriesException(e.getMessage());
+			}
+	}
+	
+	public <T> T[] concatWithArrayCopy(T[] array1,T[] array2) {
+		T[] result = Arrays.copyOf(array1, array1.length+array2.length);
+		System.arraycopy(array2, 0, result, array1.length, array2.length);
+		return result;
 	}
 }

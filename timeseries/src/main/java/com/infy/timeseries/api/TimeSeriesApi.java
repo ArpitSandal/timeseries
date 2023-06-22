@@ -1,5 +1,7 @@
 package com.infy.timeseries.api;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +35,11 @@ public class TimeSeriesApi {
 	public ResponseEntity<List<Object>> getPerson(@PathVariable Integer personId) throws TimeSeriesException{
 		return new ResponseEntity<>(timeSeriesServiceImpl.getAllPerson(personId), HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/query/{personId}/{time}")
+		public ResponseEntity<Object>getPersonQuery(@PathVariable Integer personId, @PathVariable String time) throws TimeSeriesException{
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+			LocalDateTime time1 = LocalDateTime.parse(time,format);
+			return new ResponseEntity<>(timeSeriesServiceImpl.getPersonQuery(personId,time1),HttpStatus.OK);
+		}
 }
