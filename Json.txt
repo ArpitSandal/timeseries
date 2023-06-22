@@ -1,11 +1,10 @@
 {
-    "timestamp" : "2018-02-05T12:59:11.332",
     "personId" : 2,
     "eventId" : 1,
-    "person" : {
+    "personPayload" : {
         "personId" : 2,
-        "firstName" : "Aditya",
-        "lastName" : "Agarwal",
+        "firstName" : "Arpit",
+        "lastName" : "Sandal",
         "phone" : ["12", "34"],
         "email" : ["ad", "ef"],
         "address" : [{
@@ -17,10 +16,10 @@
             "pincode" : "700033"
         }]
     },
-    "eventType" : "Create",
+    "eventType" : "create",
     "createdOn": "2018-02-05T12:59:11.332",
     "raisedOn": "2018-02-05T12:59:11.332",
-    "subscribed" : "2018-02-05T12:59:11.332",
-    "handled" : "2018-02-05T12:59:11.332",
-    "processed" : "2018-02-05T12:59:11.332"
+    "subscribedOn" : "2018-02-05T12:59:11.332",
+    "handledOn" : "2018-02-05T12:59:11.332",
+    "processedOn" : "2018-02-05T12:59:11.332"
 }
