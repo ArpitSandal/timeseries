@@ -39,12 +39,13 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 		String json = gson.toJson(dto.getPersonPayload());
 		TimeSeriesEntity entity = new TimeSeriesEntity(dto.getEventId(), dto.getPersonId(), json, dto.getEventType(),
 				dto.getCreatedOn(), dto.getRaisedOn(), dto.getSubscribedOn(), dto.getHandledOn(), dto.getProcessedOn());
-		return repo.save(entity).toString();
+		repo.save(entity);
+		return "Person ID "+entity.getPersonId() + " " + entity.getEventType() + "d at " + entity.getTimestamp();
 	}
 
 	public List<Object> getAllPerson(Integer personId) throws TimeSeriesException {
-		List<String> l = repo.findAllByPersonId(personId);
-		return jsonToDto.StringToObject(l);
+		List<String> list = repo.findAllByPersonId(personId);
+		return jsonToDto.StringToObject(list);
 	}
 
 }

@@ -6,18 +6,22 @@ create database timeseries_db;
 
 DROP TABLE IF EXISTS timeseries CASCADE;
 
+CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
+
 create table timeseries(
 time_stamp TIMESTAMPTZ PRIMARY KEY,
 event_id INT NOT NULL,
 person_id INT NOT NULL,
 person_payload TEXT,
 event_type VARCHAR(10) NOT NULL,
-created_on TIMESTAMP,
-raised_on TIMESTAMP,
-subscribed_on TIMESTAMP,
-handled_on TIMESTAMP,
-processed_on TIMESTAMP
+created_on TIMESTAMPTZ,
+raised_on TIMESTAMPTZ,
+subscribed_on TIMESTAMPTZ,
+handled_on TIMESTAMPTZ,
+processed_on TIMESTAMPTZ
 );
+
+SELECT create_hypertable('timeseries', 'time_stamp');
 
 select * from timeseries;
 
