@@ -15,7 +15,7 @@ public class TimeSeriesEntity {
 	LocalDateTime timestamp;
 	Integer eventId;
 
-	@Column(name="person_id")
+	@Column(name = "person_id")
 	Integer personId;
 
 	String personPayload;
@@ -33,11 +33,12 @@ public class TimeSeriesEntity {
 	LocalDateTime processedOn;
 
 	public TimeSeriesEntity() {
-		
+
 	}
-	public TimeSeriesEntity(Integer eventId, Integer personId, String personPayload,
-			String eventType, LocalDateTime createdOn, LocalDateTime raisedOn, LocalDateTime subscribedOn,
-			LocalDateTime handledOn, LocalDateTime processedOn) {
+
+	public TimeSeriesEntity(Integer eventId, Integer personId, String personPayload, String eventType,
+			LocalDateTime createdOn, LocalDateTime raisedOn, LocalDateTime subscribedOn, LocalDateTime handledOn,
+			LocalDateTime processedOn) {
 		super();
 		this.timestamp = LocalDateTime.now();
 		this.eventId = eventId;

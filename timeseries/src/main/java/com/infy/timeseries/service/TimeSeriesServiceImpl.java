@@ -45,6 +45,8 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 
 	public List<Object> getAllPerson(Integer personId) throws TimeSeriesException {
 		List<String> list = repo.findAllByPersonId(personId);
+		if(list.isEmpty())
+			throw new TimeSeriesException("No such Person Id Found!");
 		return jsonToDto.StringToObject(list);
 	}
 

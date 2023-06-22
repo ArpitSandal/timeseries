@@ -23,5 +23,7 @@ processed_on TIMESTAMPTZ
 
 SELECT create_hypertable('timeseries', 'time_stamp');
 
+SELECT add_retention_policy('timeseries', INTERVAL '24 hours');
+
 select * from timeseries;
 
