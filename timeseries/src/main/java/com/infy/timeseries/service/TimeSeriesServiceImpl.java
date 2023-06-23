@@ -29,7 +29,7 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 	@Autowired
 	TimeserieRepository repo;
 
-//	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
+	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
 
 	@Override
 	public String entry(Object object) throws TimeSeriesException {
@@ -66,35 +66,40 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 		PersonDTO person = new PersonDTO();
 
 		for (TimeSeriesEntity i : list) {
-			if (i.getEventType().equalsIgnoreCase("update") || i.getEventType().equalsIgnoreCase("create")) {
-				person = jsonToDto.StringtoDTO(i.getPersonPayload());
-			} else {
 				PersonDTO person1 = new PersonDTO();
 				person1 = jsonToDto.StringtoDTO(i.getPersonPayload());
+				LOGGER.info("Person ID: "+person1.getPersonId()+" "+i.getEventType()+" made on: "+i.getProcessedOn());
+				if(i.getEventType().equalsIgnoreCase("create")) {
+					person=person1;
+					LOGGER.info(person.toString());
+					continue;
+				}
 				if (person1.getFirstName() != null) {
-					jsonToDto.logInfo("First Name", person.getFirstName(), person1.getFirstName(), i.getProcessedOn());
+					jsonToDto.logInfo("First Name", person.getFirstName(), person1.getFirstName());
 					person.setFirstName(person1.getFirstName());
 				}
 				if (person1.getLastName() != null) {
-					jsonToDto.logInfo("Last Name", person.getLastName(), person1.getLastName(), i.getProcessedOn());
-					person.setLastName(person.getLastName());
+					jsonToDto.logInfo("Last Name", person.getLastName(), person1.getLastName());
+					person.setLastName(person1.getLastName());
 				}
 				if (person1.getAddress() != null) {
-					jsonToDto.logInfo("Address", Arrays.toString(person.getAddress()), Arrays.toString(person1.getAddress()), i.getProcessedOn());
+					jsonToDto.logInfo("Address", Arrays.toString(person.getAddress()), Arrays.toString(person1.getAddress()));
 					person.setAddress(jsonToDto.concatWithArrayCopy(person.getAddress(), person1.getAddress()));
 				}
 				if (person1.getPhone() != null) {
-					jsonToDto.logInfo("Phone", Arrays.toString(person.getPhone()),Arrays.toString( person1.getPhone()), i.getProcessedOn());
+					jsonToDto.logInfo("Phone", Arrays.toString(person.getPhone()),Arrays.toString( person1.getPhone()));
 					person.setPhone(jsonToDto.concatWithArrayCopy(person.getPhone(), person1.getPhone()));
 				}
 				if (person1.getEmail() != null) {
-					jsonToDto.logInfo("Email",Arrays.toString( person.getEmail()),Arrays.toString( person1.getEmail()), i.getProcessedOn());
+					jsonToDto.logInfo("Email",Arrays.toString( person.getEmail()),Arrays.toString( person1.getEmail()));
 
 					person.setEmail(jsonToDto.concatWithArrayCopy(person.getEmail(), person1.getEmail()));
 
 				}
-			}
 		}
+		LOGGER.info("Person ID: "+person.getPersonId()+" till "+time);
+		LOGGER.info(person.toString());
+		LOGGER.info("------------------\n");
 		return person;
 	}
 

@@ -26,8 +26,8 @@ public class JsonToDto {
 	
 	static ObjectMapper mapper = new ObjectMapper();
 	
-	public <T> void logInfo(String field, T initialState, T finalState, LocalDateTime time) {
-		LOGGER.info(field+ " changed from: "+initialState.toString()+" to: "+finalState.toString()+" On: "+time);
+	public <T> void logInfo(String field, T initialState, T finalState) {
+		LOGGER.info(field+ " changed from: "+(initialState==null ? "null" : initialState.toString())+" to: "+(finalState==null ? "null" : finalState.toString()));
 	}
 
 	public TimeSeriesDTO getPayLoad(Object object) throws TimeSeriesException {
