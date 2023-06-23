@@ -8,6 +8,7 @@
         "phone" : ["12", "34"],
         "email" : ["ad", "ef"],
         "address" : [{
+		"addressName": "home",
             "line1" : "abc",
             "line2" : "def",
             "state" : "WB",
