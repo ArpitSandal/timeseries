@@ -68,7 +68,7 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 		for (TimeSeriesEntity i : list) {
 				PersonDTO person1 = new PersonDTO();
 				person1 = jsonToDto.StringtoDTO(i.getPersonPayload());
-				LOGGER.info("Person ID: "+person1.getPersonId()+" "+i.getEventType()+" made on: "+i.getProcessedOn());
+				LOGGER.info("\nPerson ID: "+person1.getPersonId()+" "+i.getEventType()+" made on: "+i.getProcessedOn());
 				if(i.getEventType().equalsIgnoreCase("create")) {
 					person=person1;
 					LOGGER.info(person.toString());
