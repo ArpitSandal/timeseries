@@ -17,14 +17,6 @@ public class TimeseriesApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-//		System.out.println("jai mata di");
-		String logFilePath = "../log/InfoLog.log"; // Update with your log file path
-
-		// Clear the log file
-		File logFile = new File(logFilePath);
-		if (logFile.exists()) {
-			logFile.delete();
-		}
 	}
 	
 }
