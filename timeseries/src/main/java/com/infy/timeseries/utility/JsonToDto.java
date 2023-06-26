@@ -57,6 +57,8 @@ public class JsonToDto {
 	}
 
 	public <T> T[] concatWithArrayCopy(T[] array1, T[] array2) {
+		if(array1==null)
+			return array2;
 		Set<T> hashSet = new HashSet<T>();
 		for (T i : array2) {
 			hashSet.add(i);
