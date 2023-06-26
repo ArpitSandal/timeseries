@@ -35,6 +35,7 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 
 	@Autowired
 	TimeserieRepository repo;
+	public static String personLog = "" ;
 
 //	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
 
@@ -77,8 +78,8 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 
 		PersonDTO finalPerson = new PersonDTO(); // will contain the merged person data after all updates and patches
 		PersonDTO person; // person data till now
-
-		String personLog = "";
+		
+		personLog="";
 
 		Path path = Paths.get(env.getProperty("logFilePath"));
 
@@ -87,7 +88,12 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 			personLog += "Person ID: " + personId + " " + i.getEventType() + " made on: " + i.getProcessedOn() + "\n";
 			if (i.getEventType().equalsIgnoreCase("create")) {
 				finalPerson = person;
-				personLog += finalPerson.toString() + "\n";
+				personLog += finalPerson.toString() + "\n\n";
+				continue;
+			}
+			if (i.getEventType().equalsIgnoreCase("update")) {
+				finalPerson = person;
+				personLog +=finalPerson.toString() +"\n\n";	
 				continue;
 			}
 			if (person.getFirstName() != null) {
@@ -100,11 +106,8 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 			}
 			if (person.getAddress() != null) {
 				AddressDTO[] finalAddress;
-				if (i.getEventType().equalsIgnoreCase("patch")) {
-					finalAddress = jsonToDto.concatWithArrayCopy(finalPerson.getAddress(), person.getAddress());
-				} else {
-					finalAddress = person.getAddress();
-				}
+				finalAddress = jsonToDto.concatWithArrayCopy(finalPerson.getAddress(), person.getAddress());
+
 				personLog += jsonToDto.logInfo("Address", Arrays.toString(finalPerson.getAddress()),
 						Arrays.toString(finalAddress));
 				finalPerson.setAddress(finalAddress);
@@ -112,30 +115,24 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 			}
 			if (person.getPhone() != null) {
 				String[] finalPhone;
-				if (i.getEventType().equalsIgnoreCase("patch")) {
-					finalPhone=jsonToDto.concatWithArrayCopy(finalPerson.getPhone(), person.getPhone());
-				} else {
-					finalPhone=person.getPhone();
-				}
+				finalPhone = jsonToDto.concatWithArrayCopy(finalPerson.getPhone(), person.getPhone());
+
 				personLog += jsonToDto.logInfo("Phone", Arrays.toString(finalPerson.getPhone()),
 						Arrays.toString(finalPhone));
 				finalPerson.setPhone(finalPhone);
-				
+
 			}
 			if (person.getEmail() != null) {
 				String[] finalEmail;
-				if (i.getEventType().equalsIgnoreCase("patch")) {
-					finalEmail=jsonToDto.concatWithArrayCopy(finalPerson.getEmail(), person.getEmail());
-				} else {
-					finalEmail=person.getEmail();
-				}
+				finalEmail = jsonToDto.concatWithArrayCopy(finalPerson.getEmail(), person.getEmail());
 				personLog += jsonToDto.logInfo("Email", Arrays.toString(finalPerson.getEmail()),
 						Arrays.toString(finalEmail));
 				finalPerson.setEmail(finalEmail);
-				
+
 			}
+			personLog += "\n" ;
 		}
-		personLog += "Person with ID: " + finalPerson.getPersonId() + " till " + time + "\n" + finalPerson.toString()
+		personLog += "Final Person with ID: " + finalPerson.getPersonId() + " till " + time + "\n" + finalPerson.toString()
 				+ "\n";
 		personLog += "------------------\n";
 		try {
@@ -145,5 +142,5 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 		}
 		return finalPerson;
 	}
-
+	
 }
