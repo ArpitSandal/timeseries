@@ -1,5 +1,10 @@
 package com.infy.timeseries.service;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -9,9 +14,11 @@ import javax.transaction.Transactional;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
+import com.infy.timeseries.dto.AddressDTO;
 import com.infy.timeseries.dto.PersonDTO;
 import com.infy.timeseries.dto.TimeSeriesDTO;
 import com.infy.timeseries.entity.TimeSeriesEntity;
@@ -29,7 +36,10 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 	@Autowired
 	TimeserieRepository repo;
 
-	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
+//	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
+
+	@Autowired
+	Environment env;
 
 	@Override
 	public String entry(Object object) throws TimeSeriesException {
@@ -57,50 +67,83 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 	}
 
 	public Object getPersonQuery(Integer personId, LocalDateTime time) throws TimeSeriesException {
-//		LOGGER.info("jai mata di");
-		List<TimeSeriesEntity> list = repo.findPersonQuery(personId, time);
+
+		List<TimeSeriesEntity> list = repo.findPersonQuery(personId, time); // query data from database based on
+																			// personId and time
+
 		if (list.isEmpty()) {
 			throw new TimeSeriesException("Person Id does not exsist till the given time");
 		}
 
-		PersonDTO person = new PersonDTO();
+		PersonDTO finalPerson = new PersonDTO(); // will contain the merged person data after all updates and patches
+		PersonDTO person; // person data till now
+
+		String personLog = "";
+
+		Path path = Paths.get(env.getProperty("logFilePath"));
 
 		for (TimeSeriesEntity i : list) {
-				PersonDTO person1 = new PersonDTO();
-				person1 = jsonToDto.StringtoDTO(i.getPersonPayload());
-				LOGGER.info("\nPerson ID: "+person1.getPersonId()+" "+i.getEventType()+" made on: "+i.getProcessedOn());
-				if(i.getEventType().equalsIgnoreCase("create")) {
-					person=person1;
-					LOGGER.info(person.toString());
-					continue;
+			person = jsonToDto.StringtoDTO(i.getPersonPayload());
+			personLog += "Person ID: " + personId + " " + i.getEventType() + " made on: " + i.getProcessedOn() + "\n";
+			if (i.getEventType().equalsIgnoreCase("create")) {
+				finalPerson = person;
+				personLog += finalPerson.toString() + "\n";
+				continue;
+			}
+			if (person.getFirstName() != null) {
+				personLog += jsonToDto.logInfo("First Name", finalPerson.getFirstName(), person.getFirstName());
+				finalPerson.setFirstName(person.getFirstName());
+			}
+			if (person.getLastName() != null) {
+				personLog += jsonToDto.logInfo("Last Name", finalPerson.getLastName(), person.getLastName());
+				finalPerson.setLastName(person.getLastName());
+			}
+			if (person.getAddress() != null) {
+				AddressDTO[] finalAddress;
+				if (i.getEventType().equalsIgnoreCase("patch")) {
+					finalAddress = jsonToDto.concatWithArrayCopy(finalPerson.getAddress(), person.getAddress());
+				} else {
+					finalAddress = person.getAddress();
 				}
-				if (person1.getFirstName() != null) {
-					jsonToDto.logInfo("First Name", person.getFirstName(), person1.getFirstName());
-					person.setFirstName(person1.getFirstName());
-				}
-				if (person1.getLastName() != null) {
-					jsonToDto.logInfo("Last Name", person.getLastName(), person1.getLastName());
-					person.setLastName(person1.getLastName());
-				}
-				if (person1.getAddress() != null) {
-					jsonToDto.logInfo("Address", Arrays.toString(person.getAddress()), Arrays.toString(person1.getAddress()));
-					person.setAddress(jsonToDto.concatWithArrayCopy(person.getAddress(), person1.getAddress()));
-				}
-				if (person1.getPhone() != null) {
-					jsonToDto.logInfo("Phone", Arrays.toString(person.getPhone()),Arrays.toString( person1.getPhone()));
-					person.setPhone(jsonToDto.concatWithArrayCopy(person.getPhone(), person1.getPhone()));
-				}
-				if (person1.getEmail() != null) {
-					jsonToDto.logInfo("Email",Arrays.toString( person.getEmail()),Arrays.toString( person1.getEmail()));
+				personLog += jsonToDto.logInfo("Address", Arrays.toString(finalPerson.getAddress()),
+						Arrays.toString(finalAddress));
+				finalPerson.setAddress(finalAddress);
 
-					person.setEmail(jsonToDto.concatWithArrayCopy(person.getEmail(), person1.getEmail()));
-
+			}
+			if (person.getPhone() != null) {
+				String[] finalPhone;
+				if (i.getEventType().equalsIgnoreCase("patch")) {
+					finalPhone=jsonToDto.concatWithArrayCopy(finalPerson.getPhone(), person.getPhone());
+				} else {
+					finalPhone=person.getPhone();
 				}
+				personLog += jsonToDto.logInfo("Phone", Arrays.toString(finalPerson.getPhone()),
+						Arrays.toString(finalPhone));
+				finalPerson.setPhone(finalPhone);
+				
+			}
+			if (person.getEmail() != null) {
+				String[] finalEmail;
+				if (i.getEventType().equalsIgnoreCase("patch")) {
+					finalEmail=jsonToDto.concatWithArrayCopy(finalPerson.getEmail(), person.getEmail());
+				} else {
+					finalEmail=person.getEmail();
+				}
+				personLog += jsonToDto.logInfo("Email", Arrays.toString(finalPerson.getEmail()),
+						Arrays.toString(finalEmail));
+				finalPerson.setEmail(finalEmail);
+				
+			}
 		}
-		LOGGER.info("Person ID: "+person.getPersonId()+" till "+time);
-		LOGGER.info(person.toString());
-		LOGGER.info("------------------\n");
-		return person;
+		personLog += "Person with ID: " + finalPerson.getPersonId() + " till " + time + "\n" + finalPerson.toString()
+				+ "\n";
+		personLog += "------------------\n";
+		try {
+			Files.writeString(path, personLog, StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			throw new TimeSeriesException(e.getMessage());
+		}
+		return finalPerson;
 	}
 
 }

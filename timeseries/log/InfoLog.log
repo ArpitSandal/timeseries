@@ -1,34 +1,643 @@
-16:03:20 - 
-Person ID: 1 create made on: 2018-01-05T12:59:11.332
-16:03:20 - PersonDTO [personId=1, firstName=Arpit, lastName=Sandal, phone=[1234567], email=[33232], address=[AddressDTO [addressName=Home, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]]]
-16:03:20 - 
-Person ID: 1 patch made on: 2018-01-05T12:59:11.332
-16:03:20 - First Name changed from: Arpit to: Arpit
-16:03:20 - Last Name changed from: Sandal to: Sandal
-16:03:20 - Address changed from: [AddressDTO [addressName=Home, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]] to: [AddressDTO [addressName=office, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]]
-16:03:20 - Phone changed from: [1234567] to: [1234567]
-16:03:20 - Email changed from: [33232] to: [33232]
-16:03:20 - 
-Person ID: 1 update made on: 2018-04-05T12:59:11.332
-16:03:20 - First Name changed from: Arpit to: Ankit
-16:03:20 - Last Name changed from: Sandal to: Sandal
-16:03:20 - Address changed from: [AddressDTO [addressName=office, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol], AddressDTO [addressName=Home, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]] to: [AddressDTO [addressName=office, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]]
-16:03:20 - Phone changed from: [1234567] to: [1234567, 828923829]
-16:03:20 - Email changed from: [33232] to: [33232]
-16:03:20 - 
-Person ID: null patch made on: 2018-05-05T12:59:11.332
-16:03:20 - First Name changed from: Ankit to: Ankit
-16:03:20 - Person ID: 1 till 2018-06-05T12:59:11.332
-16:03:20 - PersonDTO [personId=1, firstName=Ankit, lastName=Sandal, phone=[1234567, 828923829], email=[33232], address=[AddressDTO [addressName=office, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol], AddressDTO [addressName=Home, line1=abc, line2=def, country=Ind, pincode=700033, state=WB, city=Kol]]]
-16:03:20 - ------------------
+09:43:56 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:43:56 - No active profile set, falling back to 1 default profile: "default"
+09:43:56 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:43:56 - Finished Spring Data repository scanning in 6 ms. Found 1 JPA repository interfaces.
+09:43:56 - Tomcat initialized with port(s): 8080 (http)
+09:43:56 - Starting service [Tomcat]
+09:43:56 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:43:56 - Initializing Spring embedded WebApplicationContext
+09:43:56 - Root WebApplicationContext: initialization completed in 242 ms
+09:43:56 - HikariPool-10 - Starting...
+09:43:56 - HikariPool-10 - Start completed.
+09:43:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:43:56 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:43:56 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:43:56 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:43:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:43:56 - LiveReload server is running on port 35729
+09:43:56 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:43:56 - Tomcat started on port(s): 8080 (http) with context path ''
+09:43:56 - Started TimeseriesApplication in 0.835 seconds (JVM running for 1082.661)
+09:43:56 - Condition evaluation unchanged
+09:44:07 - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:44:07 - HikariPool-10 - Shutdown initiated...
+09:44:07 - HikariPool-10 - Shutdown completed.
+09:44:07 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:44:07 - No active profile set, falling back to 1 default profile: "default"
+09:44:07 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:44:07 - Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interfaces.
+09:44:07 - Tomcat initialized with port(s): 8080 (http)
+09:44:07 - Starting service [Tomcat]
+09:44:07 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:44:07 - Initializing Spring embedded WebApplicationContext
+09:44:07 - Root WebApplicationContext: initialization completed in 286 ms
+09:44:08 - HikariPool-11 - Starting...
+09:44:08 - HikariPool-11 - Start completed.
+09:44:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:44:08 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:44:08 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:44:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:44:08 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:44:08 - LiveReload server is running on port 35729
+09:44:08 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:44:08 - Tomcat started on port(s): 8080 (http) with context path ''
+09:44:08 - Started TimeseriesApplication in 0.581 seconds (JVM running for 1093.943)
+09:44:08 - Condition evaluation unchanged
+09:45:18 - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:45:18 - HikariPool-11 - Shutdown initiated...
+09:45:18 - HikariPool-11 - Shutdown completed.
+09:45:18 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:45:18 - No active profile set, falling back to 1 default profile: "default"
+09:45:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:45:18 - Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interfaces.
+09:45:18 - Tomcat initialized with port(s): 8080 (http)
+09:45:18 - Starting service [Tomcat]
+09:45:18 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:45:18 - Initializing Spring embedded WebApplicationContext
+09:45:18 - Root WebApplicationContext: initialization completed in 282 ms
+09:45:18 - HikariPool-12 - Starting...
+09:45:18 - HikariPool-12 - Start completed.
+09:45:18 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:45:18 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:45:18 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:45:18 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:45:18 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:45:18 - LiveReload server is running on port 35729
+09:45:18 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:45:18 - Tomcat started on port(s): 8080 (http) with context path ''
+09:45:18 - Started TimeseriesApplication in 0.59 seconds (JVM running for 1164.385)
+09:45:18 - Condition evaluation unchanged
+09:45:25 - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:45:25 - HikariPool-12 - Shutdown initiated...
+09:45:25 - HikariPool-12 - Shutdown completed.
+09:45:25 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:45:25 - No active profile set, falling back to 1 default profile: "default"
+09:45:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:45:25 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+09:45:25 - Tomcat initialized with port(s): 8080 (http)
+09:45:25 - Starting service [Tomcat]
+09:45:25 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:45:25 - Initializing Spring embedded WebApplicationContext
+09:45:25 - Root WebApplicationContext: initialization completed in 198 ms
+09:45:25 - HikariPool-13 - Starting...
+09:45:25 - HikariPool-13 - Start completed.
+09:45:25 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:45:25 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:45:25 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:45:25 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:45:25 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:45:25 - LiveReload server is running on port 35729
+09:45:25 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:45:25 - Tomcat started on port(s): 8080 (http) with context path ''
+09:45:25 - Started TimeseriesApplication in 0.483 seconds (JVM running for 1171.45)
+09:45:25 - Condition evaluation unchanged
+09:48:39 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:48:39 - Initializing Servlet 'dispatcherServlet'
+09:48:39 - Completed initialization in 0 ms
+09:58:48 - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:58:48 - HikariPool-13 - Shutdown initiated...
+09:58:48 - HikariPool-13 - Shutdown completed.
+09:58:48 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:58:48 - No active profile set, falling back to 1 default profile: "default"
+09:58:48 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:58:48 - Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interfaces.
+09:58:48 - Tomcat initialized with port(s): 8080 (http)
+09:58:48 - Starting service [Tomcat]
+09:58:48 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:58:48 - Initializing Spring embedded WebApplicationContext
+09:58:48 - Root WebApplicationContext: initialization completed in 248 ms
+09:58:48 - HikariPool-14 - Starting...
+09:58:48 - HikariPool-14 - Start completed.
+09:58:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:58:48 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:58:48 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:58:48 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:58:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:58:48 - LiveReload server is running on port 35729
+09:58:48 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:58:48 - Tomcat started on port(s): 8080 (http) with context path ''
+09:58:48 - Started TimeseriesApplication in 0.554 seconds (JVM running for 1974.357)
+09:58:48 - Condition evaluation unchanged
+09:58:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:58:51 - Initializing Servlet 'dispatcherServlet'
+09:58:51 - Completed initialization in 1 ms
+09:58:52 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.Error: Unresolved compilation problems: 
+	person cannot be resolved
+	person cannot be resolved
+] with root cause
+java.lang.Error: Unresolved compilation problems: 
+	person cannot be resolved
+	person cannot be resolved
 
-16:04:12 - 
-Person ID: 5 create made on: 2018-02-05T12:59:11.332
-16:04:12 - PersonDTO [personId=5, firstName=Ankit, lastName=null, phone=null, email=null, address=null]
-16:04:12 - 
-Person ID: 5 patch made on: 2018-03-05T12:59:11.332
-16:04:12 - Last Name changed from: null to: Sandal
-16:04:12 - Person ID: 5 till 2018-06-05T12:59:11.332
-16:04:12 - PersonDTO [personId=5, firstName=Ankit, lastName=Sandal, phone=null, email=null, address=null]
-16:04:12 - ------------------
-
+	at com.infy.timeseries.service.TimeSeriesServiceImpl.getPersonQuery(TimeSeriesServiceImpl.java:108) ~[classes/:na]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$FastClassBySpringCGLIB$$1ddb5777.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.18.jar:5.3.18]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$EnhancerBySpringCGLIB$$3aafc68c.getPersonQuery(<generated>) ~[classes/:na]
+	at com.infy.timeseries.api.TimeSeriesApi.getPersonQuery(TimeSeriesApi.java:43) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.6.jar:2.6.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+09:59:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:59:10 - HikariPool-14 - Shutdown initiated...
+09:59:10 - HikariPool-14 - Shutdown completed.
+09:59:10 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+09:59:10 - No active profile set, falling back to 1 default profile: "default"
+09:59:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:59:10 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+09:59:10 - Tomcat initialized with port(s): 8080 (http)
+09:59:10 - Starting service [Tomcat]
+09:59:10 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+09:59:10 - Initializing Spring embedded WebApplicationContext
+09:59:10 - Root WebApplicationContext: initialization completed in 190 ms
+09:59:10 - HikariPool-15 - Starting...
+09:59:10 - HikariPool-15 - Start completed.
+09:59:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:59:10 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+09:59:10 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09:59:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:59:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:59:11 - LiveReload server is running on port 35729
+09:59:11 - Exposing 1 endpoint(s) beneath base path '/actuator'
+09:59:11 - Tomcat started on port(s): 8080 (http) with context path ''
+09:59:11 - Started TimeseriesApplication in 0.482 seconds (JVM running for 1996.727)
+09:59:11 - Condition evaluation unchanged
+09:59:13 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:59:13 - Initializing Servlet 'dispatcherServlet'
+09:59:13 - Completed initialization in 2 ms
+10:07:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:07:15 - HikariPool-15 - Shutdown initiated...
+10:07:15 - HikariPool-15 - Shutdown completed.
+10:07:15 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:07:15 - No active profile set, falling back to 1 default profile: "default"
+10:07:16 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:07:16 - Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
+10:07:16 - Tomcat initialized with port(s): 8080 (http)
+10:07:16 - Starting service [Tomcat]
+10:07:16 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:07:16 - Initializing Spring embedded WebApplicationContext
+10:07:16 - Root WebApplicationContext: initialization completed in 288 ms
+10:07:16 - HikariPool-16 - Starting...
+10:07:16 - HikariPool-16 - Start completed.
+10:07:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:07:16 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:07:16 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:07:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:07:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:07:16 - LiveReload server is running on port 35729
+10:07:16 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:07:16 - Tomcat started on port(s): 8080 (http) with context path ''
+10:07:16 - Started TimeseriesApplication in 0.598 seconds (JVM running for 2482.271)
+10:07:16 - Condition evaluation unchanged
+10:07:19 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:07:19 - Initializing Servlet 'dispatcherServlet'
+10:07:19 - Completed initialization in 0 ms
+10:07:26 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.infy.timeseries.exception.TimeSeriesException: Person Id does not exsist till the given time] with root cause
+com.infy.timeseries.exception.TimeSeriesException: Person Id does not exsist till the given time
+	at com.infy.timeseries.service.TimeSeriesServiceImpl.getPersonQuery(TimeSeriesServiceImpl.java:73) ~[classes/:na]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$FastClassBySpringCGLIB$$1ddb5777.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.18.jar:5.3.18]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$EnhancerBySpringCGLIB$$3aafc68c.getPersonQuery(<generated>) ~[classes/:na]
+	at com.infy.timeseries.api.TimeSeriesApi.getPersonQuery(TimeSeriesApi.java:43) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.6.jar:2.6.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+10:09:09 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:09:09 - HikariPool-16 - Shutdown initiated...
+10:09:09 - HikariPool-16 - Shutdown completed.
+10:09:09 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:09:09 - No active profile set, falling back to 1 default profile: "default"
+10:09:09 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:09:09 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+10:09:09 - Tomcat initialized with port(s): 8080 (http)
+10:09:09 - Starting service [Tomcat]
+10:09:09 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:09:09 - Initializing Spring embedded WebApplicationContext
+10:09:09 - Root WebApplicationContext: initialization completed in 218 ms
+10:09:09 - HikariPool-17 - Starting...
+10:09:09 - HikariPool-17 - Start completed.
+10:09:09 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:09:09 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:09:09 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:09:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:09:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:09:10 - LiveReload server is running on port 35729
+10:09:10 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:09:10 - Tomcat started on port(s): 8080 (http) with context path ''
+10:09:10 - Started TimeseriesApplication in 0.768 seconds (JVM running for 2595.798)
+10:09:10 - Condition evaluation unchanged
+10:09:12 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:09:12 - Initializing Servlet 'dispatcherServlet'
+10:09:12 - Completed initialization in 0 ms
+10:14:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:14:35 - HikariPool-17 - Shutdown initiated...
+10:14:35 - HikariPool-17 - Shutdown completed.
+10:14:35 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:14:35 - No active profile set, falling back to 1 default profile: "default"
+10:14:35 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:14:35 - Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interfaces.
+10:14:35 - Tomcat initialized with port(s): 8080 (http)
+10:14:35 - Starting service [Tomcat]
+10:14:35 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:14:35 - Initializing Spring embedded WebApplicationContext
+10:14:35 - Root WebApplicationContext: initialization completed in 203 ms
+10:14:35 - HikariPool-18 - Starting...
+10:14:35 - HikariPool-18 - Start completed.
+10:14:35 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:14:35 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:14:35 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:14:35 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:14:35 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:14:35 - LiveReload server is running on port 35729
+10:14:35 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:14:35 - Tomcat started on port(s): 8080 (http) with context path ''
+10:14:35 - Started TimeseriesApplication in 0.482 seconds (JVM running for 2921.275)
+10:14:35 - Condition evaluation unchanged
+10:18:41 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:18:41 - Initializing Servlet 'dispatcherServlet'
+10:18:41 - Completed initialization in 0 ms
+10:18:53 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.infy.timeseries.exception.TimeSeriesException: Cannot create person...ALREADY EXISTS] with root cause
+com.infy.timeseries.exception.TimeSeriesException: Cannot create person...ALREADY EXISTS
+	at com.infy.timeseries.service.TimeSeriesServiceImpl.entry(TimeSeriesServiceImpl.java:47) ~[classes/:na]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$FastClassBySpringCGLIB$$1ddb5777.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.18.jar:5.3.18]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$EnhancerBySpringCGLIB$$3aafc68c.entry(<generated>) ~[classes/:na]
+	at com.infy.timeseries.api.TimeSeriesApi.monitor(TimeSeriesApi.java:30) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.6.jar:2.6.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+10:19:18 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.infy.timeseries.exception.TimeSeriesException: Person Id does not exsist till the given time] with root cause
+com.infy.timeseries.exception.TimeSeriesException: Person Id does not exsist till the given time
+	at com.infy.timeseries.service.TimeSeriesServiceImpl.getPersonQuery(TimeSeriesServiceImpl.java:73) ~[classes/:na]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$FastClassBySpringCGLIB$$1ddb5777.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-5.3.18.jar:5.3.18]
+	at com.infy.timeseries.service.TimeSeriesServiceImpl$$EnhancerBySpringCGLIB$$3aafc68c.getPersonQuery(<generated>) ~[classes/:na]
+	at com.infy.timeseries.api.TimeSeriesApi.getPersonQuery(TimeSeriesApi.java:43) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.18.jar:5.3.18]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.60.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.6.jar:2.6.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.18.jar:5.3.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.60.jar:9.0.60]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+10:22:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:22:14 - HikariPool-18 - Shutdown initiated...
+10:22:14 - HikariPool-18 - Shutdown completed.
+10:22:14 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:22:14 - No active profile set, falling back to 1 default profile: "default"
+10:22:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:22:14 - Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interfaces.
+10:22:14 - Tomcat initialized with port(s): 8080 (http)
+10:22:14 - Starting service [Tomcat]
+10:22:14 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:22:14 - Initializing Spring embedded WebApplicationContext
+10:22:14 - Root WebApplicationContext: initialization completed in 219 ms
+10:22:14 - HikariPool-19 - Starting...
+10:22:14 - HikariPool-19 - Start completed.
+10:22:14 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:22:14 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:22:14 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:22:14 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:22:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:22:14 - LiveReload server is running on port 35729
+10:22:14 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:22:14 - Tomcat started on port(s): 8080 (http) with context path ''
+10:22:14 - Started TimeseriesApplication in 0.488 seconds (JVM running for 3380.437)
+10:22:14 - Condition evaluation unchanged
+10:23:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:23:59 - HikariPool-19 - Shutdown initiated...
+10:23:59 - HikariPool-19 - Shutdown completed.
+10:23:59 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:23:59 - No active profile set, falling back to 1 default profile: "default"
+10:23:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:23:59 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+10:23:59 - Tomcat initialized with port(s): 8080 (http)
+10:23:59 - Starting service [Tomcat]
+10:23:59 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:23:59 - Initializing Spring embedded WebApplicationContext
+10:23:59 - Root WebApplicationContext: initialization completed in 187 ms
+10:23:59 - HikariPool-20 - Starting...
+10:23:59 - HikariPool-20 - Start completed.
+10:23:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:23:59 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:23:59 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:23:59 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:23:59 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:23:59 - LiveReload server is running on port 35729
+10:23:59 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:23:59 - Tomcat started on port(s): 8080 (http) with context path ''
+10:23:59 - Started TimeseriesApplication in 0.433 seconds (JVM running for 3485.349)
+10:23:59 - Condition evaluation unchanged
+10:25:20 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:25:20 - HikariPool-20 - Shutdown initiated...
+10:25:20 - HikariPool-20 - Shutdown completed.
+10:25:20 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:25:20 - No active profile set, falling back to 1 default profile: "default"
+10:25:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:25:20 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+10:25:20 - Tomcat initialized with port(s): 8080 (http)
+10:25:20 - Starting service [Tomcat]
+10:25:20 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:25:20 - Initializing Spring embedded WebApplicationContext
+10:25:20 - Root WebApplicationContext: initialization completed in 184 ms
+10:25:20 - HikariPool-21 - Starting...
+10:25:20 - HikariPool-21 - Start completed.
+10:25:20 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:25:20 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:25:20 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:25:20 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:25:20 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:25:21 - LiveReload server is running on port 35729
+10:25:21 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:25:21 - Tomcat started on port(s): 8080 (http) with context path ''
+10:25:21 - Started TimeseriesApplication in 0.451 seconds (JVM running for 3566.778)
+10:25:21 - Condition evaluation unchanged
+10:26:03 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:26:03 - Initializing Servlet 'dispatcherServlet'
+10:26:03 - Completed initialization in 0 ms
+10:38:56 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:38:56 - HikariPool-21 - Shutdown initiated...
+10:38:56 - HikariPool-21 - Shutdown completed.
+10:38:56 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:38:56 - No active profile set, falling back to 1 default profile: "default"
+10:38:56 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:38:56 - Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
+10:38:56 - Tomcat initialized with port(s): 8080 (http)
+10:38:56 - Starting service [Tomcat]
+10:38:56 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:38:56 - Initializing Spring embedded WebApplicationContext
+10:38:56 - Root WebApplicationContext: initialization completed in 196 ms
+10:38:56 - HikariPool-22 - Starting...
+10:38:56 - HikariPool-22 - Start completed.
+10:38:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:38:56 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:38:56 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:38:56 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:38:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:38:56 - LiveReload server is running on port 35729
+10:38:56 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:38:56 - Tomcat started on port(s): 8080 (http) with context path ''
+10:38:56 - Started TimeseriesApplication in 0.443 seconds (JVM running for 4382.377)
+10:38:56 - Condition evaluation unchanged
+10:41:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
+10:41:44 - HikariPool-22 - Shutdown initiated...
+10:41:44 - HikariPool-22 - Shutdown completed.
+10:41:44 - Starting TimeseriesApplication using Java 17.0.6 on Zeni with PID 11680 (D:\Infosys Assignment\timeseriesdata\timeseries\target\classes started by Appy in D:\Infosys Assignment\timeseriesdata\timeseries)
+10:41:44 - No active profile set, falling back to 1 default profile: "default"
+10:41:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10:41:44 - Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interfaces.
+10:41:44 - Tomcat initialized with port(s): 8080 (http)
+10:41:44 - Starting service [Tomcat]
+10:41:44 - Starting Servlet engine: [Apache Tomcat/9.0.60]
+10:41:44 - Initializing Spring embedded WebApplicationContext
+10:41:44 - Root WebApplicationContext: initialization completed in 177 ms
+10:41:44 - HikariPool-23 - Starting...
+10:41:44 - HikariPool-23 - Start completed.
+10:41:44 - HHH000204: Processing PersistenceUnitInfo [name: default]
+10:41:44 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+10:41:44 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10:41:44 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:41:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:41:44 - LiveReload server is running on port 35729
+10:41:44 - Exposing 1 endpoint(s) beneath base path '/actuator'
+10:41:44 - Tomcat started on port(s): 8080 (http) with context path ''
+10:41:44 - Started TimeseriesApplication in 0.393 seconds (JVM running for 4550.441)
+10:41:44 - Condition evaluation unchanged
+10:41:47 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:41:47 - Initializing Servlet 'dispatcherServlet'
+10:41:47 - Completed initialization in 1 ms

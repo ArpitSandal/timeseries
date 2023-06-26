@@ -21,13 +21,14 @@ import com.infy.timeseries.exception.TimeSeriesException;
 
 @Component
 public class JsonToDto {
-	
+
 	private static final Log LOGGER = LogFactory.getLog(JsonToDto.class);
-	
+
 	static ObjectMapper mapper = new ObjectMapper();
-	
-	public <T> void logInfo(String field, T initialState, T finalState) {
-		LOGGER.info(field+ " changed from: "+(initialState==null ? "null" : initialState.toString())+" to: "+(finalState==null ? "null" : finalState.toString()));
+
+	public <T> String logInfo(String field, T initialState, T finalState) {
+		return field + " changed from: " + (initialState == null ? "null" : initialState.toString()) + " to: "
+				+ (finalState == null ? "null" : finalState.toString()) + "\n";
 	}
 
 	public TimeSeriesDTO getPayLoad(Object object) throws TimeSeriesException {
@@ -57,8 +58,6 @@ public class JsonToDto {
 	}
 
 	public <T> T[] concatWithArrayCopy(T[] array1, T[] array2) {
-		if(array1==null)
-			return array2;
 		Set<T> hashSet = new HashSet<T>();
 		for (T i : array2) {
 			hashSet.add(i);
