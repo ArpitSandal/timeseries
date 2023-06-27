@@ -17,18 +17,6 @@ public class AddressDTO {
 		return Objects.hash(addressName);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AddressDTO other = (AddressDTO) obj;
-		return Objects.equals(addressName.toLowerCase(), other.addressName.toLowerCase());
-	}
-
 	public String getLine1() {
 		return line1;
 	}
@@ -90,4 +78,35 @@ public class AddressDTO {
 		return "AddressDTO [addressName=" + addressName + ", line1=" + line1 + ", line2=" + line2 + ", country="
 				+ country + ", pincode=" + pincode + ", state=" + state + ", city=" + city + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+
+		// this is old object and other is new object from api
+		AddressDTO other = (AddressDTO) obj;
+		if (addressName.equalsIgnoreCase(other.addressName)) {
+			if (other.line1 == null)
+				other.setLine1(this.line1);
+			if (other.line2 == null)
+				other.setLine2(this.line2);
+			if (other.country == null)
+				other.country = this.country;
+			if (other.state == null)
+				other.state = this.state;
+			if (other.city == null)
+				other.city = this.city;
+			if (other.pincode == null)
+				other.pincode = this.pincode;
+			return true;
+		}
+		return false;
+
+	}
+
 }

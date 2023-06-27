@@ -35,7 +35,8 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 
 	@Autowired
 	TimeserieRepository repo;
-	public static String personLog = "" ;
+
+	public static String personLog = "";
 
 //	private static final Log LOGGER = LogFactory.getLog(TimeSeriesServiceImpl.class);
 
@@ -78,22 +79,17 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 
 		PersonDTO finalPerson = new PersonDTO(); // will contain the merged person data after all updates and patches
 		PersonDTO person; // person data till now
-		
-		personLog="";
+
+		personLog = "";
 
 		Path path = Paths.get(env.getProperty("logFilePath"));
 
 		for (TimeSeriesEntity i : list) {
 			person = jsonToDto.StringtoDTO(i.getPersonPayload());
 			personLog += "Person ID: " + personId + " " + i.getEventType() + " made on: " + i.getProcessedOn() + "\n";
-			if (i.getEventType().equalsIgnoreCase("create")) {
+			if (i.getEventType().equalsIgnoreCase("create") || i.getEventType().equalsIgnoreCase("update")) {
 				finalPerson = person;
 				personLog += finalPerson.toString() + "\n\n";
-				continue;
-			}
-			if (i.getEventType().equalsIgnoreCase("update")) {
-				finalPerson = person;
-				personLog +=finalPerson.toString() +"\n\n";	
 				continue;
 			}
 			if (person.getFirstName() != null) {
@@ -107,7 +103,7 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 			if (person.getAddress() != null) {
 				AddressDTO[] finalAddress;
 				finalAddress = jsonToDto.concatWithArrayCopy(finalPerson.getAddress(), person.getAddress());
-
+				
 				personLog += jsonToDto.logInfo("Address", Arrays.toString(finalPerson.getAddress()),
 						Arrays.toString(finalAddress));
 				finalPerson.setAddress(finalAddress);
@@ -130,10 +126,10 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 				finalPerson.setEmail(finalEmail);
 
 			}
-			personLog += "\n" ;
+			personLog +="\n";
 		}
-		personLog += "Final Person with ID: " + finalPerson.getPersonId() + " till " + time + "\n" + finalPerson.toString()
-				+ "\n";
+		personLog += "Final Person with ID: " + finalPerson.getPersonId() + " till " + time + "\n"
+				+ finalPerson.toString() + "\n";
 		personLog += "------------------\n";
 		try {
 			Files.writeString(path, personLog, StandardCharsets.UTF_8);
@@ -142,5 +138,5 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
 		}
 		return finalPerson;
 	}
-	
+
 }
