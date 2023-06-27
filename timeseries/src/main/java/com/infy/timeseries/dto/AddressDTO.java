@@ -14,7 +14,7 @@ public class AddressDTO {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(addressName);
+		return Objects.hash(addressName.toLowerCase());
 	}
 
 	public String getLine1() {
